@@ -1,0 +1,29 @@
+{
+  "triesKey": "onnxViewer.proTrial",
+  "tools": [
+    {
+      "id": "summary",
+      "title": "Model summary and checks",
+      "command": "onnxViewer.summary",
+      "extensions": [
+        ".onnx"
+      ]
+    },
+    {
+      "id": "compare",
+      "title": "Compare two ONNX models",
+      "command": "onnxViewer.compare",
+      "extensions": [
+        ".onnx"
+      ]
+    },
+    {
+      "id": "export",
+      "title": "Export graph and tensors",
+      "command": "onnxViewer.export",
+      "extensions": [
+        ".onnx"
+      ]
+    }
+  ]
+}

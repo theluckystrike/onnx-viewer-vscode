@@ -1,0 +1,21 @@
+{
+  "listing": "onnx",
+  "triesKey": "onnxViewer.proTrial",
+  "tools": [
+    {
+      "id": "summary",
+      "title": "Model summary and checks",
+      "line": "Use this tool on a local file and save its result."
+    },
+    {
+      "id": "compare",
+      "title": "Compare two ONNX models",
+      "line": "Use this tool on a local file and save its result."
+    },
+    {
+      "id": "export",
+      "title": "Export graph and tensors",
+      "line": "Use this tool on a local file and save its result."
+    }
+  ]
+}

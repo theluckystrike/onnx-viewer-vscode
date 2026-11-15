@@ -1,0 +1,184 @@
+{
+  "name": "zovo-onnx-viewer",
+  "displayName": "ONNX Viewer & Model Graph",
+  "description": "ONNX model viewer for node graphs, inputs, outputs and tensor shapes. Read-only, offline, and built for large local models.",
+  "version": "0.1.1",
+  "publisher": "zovo",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/theluckystrike/onnx-viewer-vscode"
+  },
+  "icon": "icon.png",
+  "engines": {
+    "vscode": "^1.75.0"
+  },
+  "categories": [
+    "Visualization",
+    "Other"
+  ],
+  "keywords": [
+    "onnx",
+    "model viewer",
+    "neural network",
+    "machine learning",
+    "graph"
+  ],
+  "main": "./dist/extension.js",
+  "activationEvents": [],
+  "capabilities": {
+    "untrustedWorkspaces": {
+      "supported": true
+    },
+    "virtualWorkspaces": false
+  },
+  "contributes": {
+    "customEditors": [
+      {
+        "viewType": "onnxViewer.preview",
+        "displayName": "ONNX Viewer & Model Graph",
+        "selector": [
+          {
+            "filenamePattern": "*.onnx"
+          }
+        ],
+        "priority": "default"
+      }
+    ],
+    "commands": [
+      {
+        "command": "onnxViewer.openWith",
+        "title": "Open in ONNX Viewer & Model Graph",
+        "category": "ONNX Viewer & Model Graph"
+      },
+      {
+        "command": "onnxViewer.getPro",
+        "title": "Get Zovo Pro (USD 19 once, all 22 Zovo extensions)",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "onnxViewer.payWithPayPal",
+        "title": "Pay for Zovo Pro with PayPal (USD 19, team of 5 USD 59)",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "onnxViewer.unlockWithSponsors",
+        "title": "I already paid: unlock with GitHub Sponsors",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "onnxViewer.enterLicenseKey",
+        "title": "Enter Zovo Pro license key",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "onnxViewer.removeLicense",
+        "title": "Remove Zovo Pro from this editor",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "onnxViewer.payByCard",
+        "title": "Pay for Zovo Pro by card (USD 19)",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "onnxViewer.enterKey",
+        "title": "Enter a key",
+        "category": "Zovo Pro"
+      },
+      {
+        "command": "onnxViewer.summary",
+        "title": "Model summary and checks",
+        "category": "ONNX Viewer & Model Graph Pro"
+      },
+      {
+        "command": "onnxViewer.compare",
+        "title": "Compare two ONNX models",
+        "category": "ONNX Viewer & Model Graph Pro"
+      },
+      {
+        "command": "onnxViewer.export",
+        "title": "Export graph and tensors",
+        "category": "ONNX Viewer & Model Graph Pro"
+      },
+      {
+        "command": "onnxViewer.zovoPro.summary",
+        "title": "Zovo Pro: Model summary and checks"
+      },
+      {
+        "command": "onnxViewer.zovoPro.compare",
+        "title": "Zovo Pro: Compare two ONNX models"
+      },
+      {
+        "command": "onnxViewer.zovoPro.export",
+        "title": "Zovo Pro: Export graph and tensors"
+      }
+    ],
+    "menus": {
+      "explorer/context": [
+        {
+          "command": "onnxViewer.openWith",
+          "when": "resourceExtname =~ /\\.(onnx)$/i",
+          "group": "navigation@9"
+        },
+        {
+          "command": "onnxViewer.zovoPro.summary",
+          "when": "resourceExtname == .onnx",
+          "group": "zovoPro@1"
+        },
+        {
+          "command": "onnxViewer.zovoPro.compare",
+          "when": "resourceExtname == .onnx",
+          "group": "zovoPro@1"
+        },
+        {
+          "command": "onnxViewer.zovoPro.export",
+          "when": "resourceExtname == .onnx",
+          "group": "zovoPro@1"
+        }
+      ],
+      "commandPalette": [
+        {
+          "command": "onnxViewer.zovoPro.summary",
+          "when": "false"
+        },
+        {
+          "command": "onnxViewer.zovoPro.compare",
+          "when": "false"
+        },
+        {
+          "command": "onnxViewer.zovoPro.export",
+          "when": "false"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "ONNX Viewer & Model Graph",
+      "properties": {
+        "onnxViewer.maxFileMB": {
+          "type": "number",
+          "default": 512,
+          "minimum": 1,
+          "maximum": 2048,
+          "description": "Largest local file size to open in megabytes."
+        },
+        "onnxViewer.askForRating": {
+          "type": "boolean",
+          "default": true,
+          "description": "Ask whether this extension is useful after successful file opens."
+        }
+      }
+    }
+  },
+  "scripts": {
+    "build": "node scripts/build.js",
+    "test": "node --test test/*.test.js",
+    "package": "npm run build && npx @vscode/vsce package --no-dependencies -o dist/"
+  },
+  "devDependencies": {
+    "esbuild": "0.25.0"
+  },
+  "sponsor": {
+    "url": "https://github.com/sponsors/theluckystrike/sponsorships?tier_id=679878"
+  }
+}
